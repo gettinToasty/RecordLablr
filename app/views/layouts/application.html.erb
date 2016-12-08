@@ -9,12 +9,14 @@
   </head>
 
   <header>
-
-    <% if flash[:messages] %>
-      <% flash[:messages].each do |message| %>
-        <p><%= message %></p>
+    <div id="flash">
+      <% if flash[:messages] %>
+        <% flash[:messages].each do |message| %>
+          <p><%= message %></p>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+
 
     <% if current_user %>
       <%= button_to "Logout", session_url(current_user), method: :delete %>
