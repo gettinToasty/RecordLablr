@@ -1,6 +1,6 @@
 <h1>Edit a track</h1>
 
-<form action="<%= edit_track_url(@track) %>" method="post">
+<form action="<%= track_url(@track) %>" method="post">
   <%= auth_token %>
 
   <input type="hidden" name="_method" value="patch">
@@ -24,6 +24,7 @@
   <br>
 
   <textarea name="track[lyrics]" rows="30" cols="80"><%= @track.lyrics %></textarea>
+  <br>
 
   <input type="submit" value="Edit track">
 </form>

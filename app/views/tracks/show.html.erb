@@ -6,7 +6,9 @@
 <br>
 <br>
 
-<%= @track.lyrics %>
+<% @track.lyrics.split("\n").each do |line| %>
+  <%= line %><br>
+<% end %>
 
 <br><br>
 <%= link_to "Edit this track", edit_track_url(@track) %>
