@@ -1,4 +1,7 @@
 class AlbumsController < ApplicationController
+
+  before_action :require_login
+
   def show
     @album = Album.find(params[:id])
   end
@@ -9,7 +12,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    @album.band_id = params[:band_id]
     if @album.save
       redirect_to album_url(@album)
     else
@@ -17,7 +19,6 @@ class AlbumsController < ApplicationController
       render :new
     end
   end
-
 
   def edit
     @album = Album.find(params[:id])
