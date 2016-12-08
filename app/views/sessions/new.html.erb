@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<form action="<%= sessions_url %>" method="POST">
+  <%= auth_token %>
+  
+  <label for="email">Email:</label>
+  <input type="text" name="sessions[email]" id="email">
+
+  <label for="password">Password:</label>
+  <input type="password" name="sessions[password]" id="password">
+
+  <input type="submit" value="Login">
+</form>
+
+<br />
+
+<p>Haven't registered?</p> <%= link_to 'Register now', new_user_url %>

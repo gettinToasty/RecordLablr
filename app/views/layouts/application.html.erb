@@ -8,6 +8,22 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <header>
+
+    <% if flash[:messages] %>
+      <% flash[:messages].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
+      <%= button_to "Logout", session_url, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_session_url %> <%= link_to "Register", new_user_url %>
+    <% end %>
+    
+  </header>
+
   <body>
     <%= yield %>
   </body>
