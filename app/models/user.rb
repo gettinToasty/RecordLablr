@@ -4,6 +4,7 @@ class User < ApplicationRecord
             :email,
             :password_digest,
             :session_token,
+            :activation_token,
             presence: true
 
   validates :username, :email, uniqueness: true
@@ -11,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :notes
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :generate_activation_token
 
   attr_reader :password
 
@@ -29,6 +30,10 @@ class User < ApplicationRecord
   def is_password?(pw)
     pw_obj = BCrypt::Password.new(password_digest)
     pw_obj.is_password?(pw)
+  end
+
+  def generate_activation_token
+    self.activation_token = SecureRandom.urlsafe_base64(12)
   end
 
   def generate_session_token

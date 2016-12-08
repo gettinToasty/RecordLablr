@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(session_params[:email],
                                     session_params[:password]
                                    )
-    if user
+    if user && user.activated
       login(user)
       flash[:messages] = ["Welcome back, #{user.username}"]
       redirect_to bands_url
     else
-      flash.now[:messages] = ["Invalid login"]
+      flash.now[:messages] = ["Invalid login, check your email for activation code"]
       render :new
     end
   end
