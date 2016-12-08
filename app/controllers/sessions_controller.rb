@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user
       login(user)
       flash[:messages] = ["Welcome back, #{user.username}"]
-      redirect_to user_url(user)
+      redirect_to bands_url
     else
       flash.now[:messages] = ["Invalid login"]
       render :new
