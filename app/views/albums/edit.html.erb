@@ -1,6 +1,6 @@
 <h1>Edit an album</h1>
 
-<form action="<%= edit_album_url(@album) %>" method="post">
+<form action="<%= album_url(@album) %>" method="post">
   <%= auth_token %>
 
   <input type="hidden" name="_method" value="patch">

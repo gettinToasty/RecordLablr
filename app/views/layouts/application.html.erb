@@ -8,25 +8,29 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <header>
-    <div id="flash">
-      <% if flash[:messages] %>
-        <% flash[:messages].each do |message| %>
-          <p><%= message %></p>
-        <% end %>
-      <% end %>
-    </div>
 
-
-    <% if current_user %>
-      <%= button_to "Logout", session_url(current_user), method: :delete %>
-    <% else %>
-      <%= link_to "Login", new_session_url %> <%= link_to "Register", new_user_url %>
-    <% end %>
-
-  </header>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <div id="flash">
+        <% if flash[:messages] %>
+          <p id="flash-text"><%= flash[:messages].join(", ") %></p>
+        <% end %>
+      </div>
+
+      <div id="login-bar">
+        <% if current_user %>
+          <%= button_to "Logout", session_url(current_user), method: :delete %>
+        <% else %>
+          <%= link_to "Login", new_session_url %> <%= link_to "Register", new_user_url %>
+        <% end %>
+      </div>
+    </header>
+
+    <div id="site-content">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
