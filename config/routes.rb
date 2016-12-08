@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "sessions#new"
 
+  get '/users/activate', to: 'users#activate'
+
   resources :users, only: [:new, :show, :create]
 
   resources :sessions, only: [:new, :create, :destroy]
@@ -20,5 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: :destroy
+
+
 
 end

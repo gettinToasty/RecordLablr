@@ -33,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def generate_activation_token
-    self.activation_token = SecureRandom.urlsafe_base64(12)
+    self.activation_token ||= SecureRandom.urlsafe_base64(12)
   end
 
   def generate_session_token

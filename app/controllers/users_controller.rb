@@ -16,12 +16,25 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login(@user)
-      flash[:messages] = ["Welcome to RecordLablr, #{@user.username}!"]
-      redirect_to user_url(@user)
+      email = ActivationMailer.activation_email(@user)
+      email.deliver
+      flash[:messages] = ["Check your email for an activation code"]
+      redirect_to new_session_url
     else
       flash.now[:messages] = @user.errors.full_messages
       render :new
+    end
+  end
+
+  def activate
+    user = User.find_by(activation_token: params[:activation_token])
+    if user
+      user.toggle(:activated)
+      login(user)
+      flash[:messages] = ["Account activation successful"]
+      redirect_to bands_url
+    else
+      redirect_to new_session_url
     end
   end
 
