@@ -14,3 +14,10 @@
 <%= link_to "Edit this track", edit_track_url(@track) %>
 <br><br>
 <%= link_to "Back to album", album_url(@track.album_id) %>
+<br><br>
+
+<%= render "notes/form", track: @track %>
+<br>
+<% @track.notes.each do |note| %>
+  <%= render "notes/note", note: note %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="note_box">
+
+  <h4><%= note.user.username %></h4>
+  <p>Posted at: <%= note.created_at %></p>
+  <br>
+  <p><%= note.body %></p>
+
+  <% if note.user == current_user %>
+    <%= button_to "Delete Note", note_url(note), method: :delete %>
+  <% end %>
+</div>

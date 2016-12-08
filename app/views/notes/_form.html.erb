@@ -1,0 +1,10 @@
+<form class="new_note" action="<%= track_notes_url(track) %>" method="post">
+  <%= auth_token %>
+
+  <label for="note[body]">New Note:</label><br>
+  <textarea name="note[body]" rows="8" cols="40"></textarea>
+  <br>
+
+  <input type="submit" value="Add Note">
+
+</form>
