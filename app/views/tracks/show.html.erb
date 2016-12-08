@@ -1,0 +1,14 @@
+<h1><%= @track.title %></h1>
+<% if @track.bonus == "true" %>
+  <h3>Bonus Track</h3>
+<% end %>
+
+<br>
+<br>
+
+<%= @track.lyrics %>
+
+<br><br>
+<%= link_to "Edit this track", edit_track_url(@track) %>
+<br><br>
+<%= link_to "Back to album", album_url(@track.album_id) %>

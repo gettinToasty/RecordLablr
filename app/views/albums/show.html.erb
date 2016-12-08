@@ -1,4 +1,8 @@
 <h1><%= @album.title %></h1>
+
+<% if @album.live == "true" %>
+  <h3>LIVE ALBUM</h3>
+<% end %>
 <br />
 
 <% @album.tracks.each do |track| %>
