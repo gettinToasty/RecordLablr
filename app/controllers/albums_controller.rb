@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @bands = Band.all
   end
 
   def create
@@ -20,6 +21,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find(params[:id])
+    @bands = Band.all
   end
 
   def update
@@ -42,7 +44,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :live)
+    params.require(:album).permit(:title, :live, :band_id)
   end
 
 end
