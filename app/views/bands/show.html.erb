@@ -4,4 +4,6 @@
   <%= link_to "#{album.title}", album_url(album) %>
 <% end %>
 <br><br>
+<%= link_to "Add an album", new_band_album_url(@band) %>
+<br>
 <%= link_to "Edit Band", edit_band_url(@band) %>
