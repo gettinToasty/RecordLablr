@@ -4,8 +4,7 @@
   <%= link_to "#{album.title}", album_url(album) %><br>
 <% end %>
 <br><br>
-<%= link_to "Add an album", new_band_album_url(@band) %>
-<br>
-<%= link_to "Edit Band", edit_band_url(@band) %>
+<%= link_to "Add an album", new_band_album_url(@band), class: "button-link" %>
+<%= link_to "Edit Band", edit_band_url(@band), class: "button-link" %>
 <br><br>
 <%= link_to "Back to Index", bands_url %>

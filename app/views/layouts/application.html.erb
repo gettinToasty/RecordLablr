@@ -23,7 +23,8 @@
         <% if current_user %>
           <%= button_to "Logout", session_url(current_user), method: :delete %>
         <% else %>
-          <%= link_to "Login", new_session_url %> <%= link_to "Register", new_user_url %>
+          <%= link_to "Login", new_session_url, class: "button-link" %>
+          <%= link_to "Register", new_user_url, class: "button-link" %>
         <% end %>
       </div>
     </header>

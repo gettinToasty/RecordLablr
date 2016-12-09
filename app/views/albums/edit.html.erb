@@ -19,8 +19,14 @@
   <input type="text" name="album[title]" id="title" value="<%= @album.title %>">
   <br>
 
-  Live Album:<input type="radio" name="album[live]" value="true" <%= "checked" if @album.live %> >
-  Studio Album:<input type="radio" name="album[live]" value="false" <%= "checked" unless @album.live %> >
+  <p>Live Album:</p><input type="radio"
+                           name="album[live]"
+                           value="true"
+                           <%= "checked" if @album.live %> >
+  <p>Studio Album:</p><input type="radio"
+                             name="album[live]"
+                             value="false"
+                             <%= "checked" unless @album.live %> >
   <br>
 
   <input type="submit" value="Edit album">

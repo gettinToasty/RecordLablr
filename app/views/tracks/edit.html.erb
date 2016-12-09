@@ -19,11 +19,19 @@
   <input type="text" name="track[title]" id="title" value="<%= @track.title %>" >
   <br>
 
-  Bonus Track:<input type="radio" name="track[bonus]" value="true" <%= "checked" if @track.bonus == "true" %> >
-  Normal Track:<input type="radio" name="track[bonus]" value="false" <%= "checked" if @track.bonus == "false" %> >
+  <label for="track[bonus]">Bonus Track:</label>
+  <input type="radio"
+         name="track[bonus]"
+         value="true"
+         <%= "checked" if @track.bonus == "true" %> >
+  <label for="track[bonus]">Normal Track:</label>
+  <input type="radio"
+         name="track[bonus]"
+         value="false"
+         <%= "checked" if @track.bonus == "false" %> >
   <br>
 
-  <textarea name="track[lyrics]" rows="30" cols="20"><%= @track.lyrics %></textarea>
+  <textarea name="track[lyrics]" rows="30" cols="40"><%= @track.lyrics %></textarea>
   <br>
 
   <input type="submit" value="Edit track">

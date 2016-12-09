@@ -17,11 +17,19 @@
   <input type="text" name="track[title]" id="title">
   <br>
 
-  Bonus Track:<input type="radio" name="track[bonus]" value="true">
-  Normal Track:<input type="radio" name="track[bonus]" value="false" checked>
+  <label for="track[bonus]">Bonus Track:</label>
+  <input type="radio"
+         name="track[bonus]"
+         value="true" >
+  <label for="track[bonus]">Normal Track:</label>
+  <input type="radio"
+         name="track[bonus]"
+         value="false"
+         checked >
   <br>
 
-  <textarea name="track[lyrics]" rows="30" cols="20"></textarea>
+  <label for="track[lyrics]">Lyrics:</label><br>
+  <textarea name="track[lyrics]" rows="30" cols="40"></textarea>
   <br>
 
   <input type="submit" value="Add track">
